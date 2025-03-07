@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.year21.computerstore.mapper.UserMapper">
     <!-- int addUser(@Param("user") User user); -->
+<!--    useGeneratedKeys="true"：告诉MyBatis在执行INSERT语句后获取由数据库生成的主键值-->
+<!--    keyProperty="id"：指定实体类中接收生成的主键值的属性名称-->
     <insert id="addUser" >
         insert into t_user(
                         username,password,salt,phone,email,gender,avatar,is_delete,
@@ -15,10 +17,16 @@
                         #{createdUser},#{createdTime},#{modifiedUser},#{modifiedTime}
                                 )
     </insert>
+<!--    resultType="  表示是查询的结果集的数据类型，可以是基本数据类型，也可以是实体类的类型(需要在resultType中指定实体类的全限定名)-->
+<!--    resultMap="   表示是查询的结果集的映射规则，可以是自定义的映射规则，也可以是resultType中指定的实体类的映射规则-->
+<!--    id属性:标签负责给这个映射的结果集一个唯一的标识-->
+<!--    type属性:取值是一个类的全限定名，表示查询的结果集的数据类型-->
 
 
     <!-- 询的结果集字段和实体类的user属性名不一致，自定义查询结果集的映射规则   -->
-    <resultMap id="queryUser" type="user">
+<!--    column属性:表示查询的结果集的字段名 ,property属性:表示实体类的属性名-->
+<!--    定义规则时,主键不能省略,无论属性名和字段名是否一致-->
+    <resultMap id="queryUser" type="top.year21.computerstore.entity.User">
         <id property="uid" column="uid"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>

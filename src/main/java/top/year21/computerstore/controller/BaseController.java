@@ -24,6 +24,7 @@ public class BaseController {
     @ExceptionHandler({ServiceException.class,FileUploadException.class,ValidCodeNotMatchException.class}) //统一处理抛出的异常
     public JsonResult<Void> handleException(Throwable e){
         JsonResult<Void> result = new JsonResult<>(e);
+
         if (e instanceof UsernameDuplicateException){
             result.setStatus(4000); //表示用户名重复
         }else if (e instanceof InsertException){

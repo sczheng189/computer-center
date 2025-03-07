@@ -78,6 +78,11 @@
             <artifactId>alipay-sdk-java</artifactId>
             <version>4.23.26.ALL</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
 
 
     </dependencies>

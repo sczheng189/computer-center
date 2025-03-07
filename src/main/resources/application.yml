@@ -16,6 +16,7 @@ spring:
 mybatis:
   type-aliases-package: top.year21.computerstore.entity
   mapper-locations: classpath:mybatis/mapper/*.xml
+
   configuration:
     #开启在mybatis处理过程中打印出对应的sql语句功能
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
